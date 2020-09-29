@@ -1,0 +1,224 @@
+.unsplash-header {
+    width: 90%;
+    margin: 2.5rem auto;
+    border-radius: 2.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    .left-side {
+        width: 35%;
+        border-radius: 2.4rem;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+
+        .my-unsplash-logo {
+            position: relative;
+            display: block;
+            height: 100%;
+        }
+
+        .input-field-conteiner {
+            padding: 1.5rem 2.5rem;
+            border-radius: 2.4rem;
+            display: flex;
+            align-items: center;
+            border: 0.1rem solid #222;
+        }
+
+        .input-field-conteiner i {
+            color: #333;
+            font-size: 1.8rem;
+            display: block;
+        }
+
+        .input-field-conteiner .input-field {
+            display: block;
+            border: none;
+            font-size: 1.4rem;
+            color: #333;
+            margin-left: 1rem;
+        }
+    }
+
+    .add-photo {
+        position: relative;
+        border: none;
+        padding: 1.5rem 2rem;
+        background-color: #259a54c4;
+        color: #fff;
+        font-size: 1.4rem;
+        font-weight: 700;
+        font-family: Poppins, sans-serif;
+        transition: 0.5s;
+        cursor: pointer;
+        border-radius: 2.4rem;
+
+        &:hover {
+            background-color: #259a54;
+        }
+    }
+}
+
+.filter {
+    width: 100%;
+    height: 100vh;
+    background-color: #00000095;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+
+    .upload-new-img-conteiner {
+        //12.4.3.1
+        width: 42.5%;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 1.5rem;
+        background-color: #fff;
+        padding: 2rem;
+        font-family: Poppins, sans-serif;
+        display: flex;
+        flex-direction: column;
+
+        .add-new-photo-title {
+            font-size: 3rem;
+            color: #333;
+        }
+
+        .form-class {
+            .form-label {
+                font-family: Poppins, sans-serif;
+                font-size: 1.6rem;
+                color: #222;
+                margin: 0.5rem 0;
+                position: relative;
+                display: block;
+            }
+
+            .form-input-field {
+                padding: 1rem;
+                border: 0.1rem solid #222;
+                border-radius: 0.5rem;
+                margin: 0.5rem 0;
+                position: relative;
+                width: 100%;
+                font-family: Poppins, sans-serif;
+                font-size: 1.4rem;
+            }
+
+            .form-buttons-conteiner {
+                position: relative;
+                margin: 2rem 0 1rem 0;
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+            }
+
+            .form-buttons-conteiner .button {
+                padding: 1rem 2rem;
+                border-radius: 0.5rem;
+                border: none;
+                font-family: Poppins, sans-serif;
+                font-size: 1.4rem;
+                font-weight: 700;
+                margin: 0 1rem;
+                cursor: pointer;
+            }
+
+            .cancel {
+                color: #333;
+                transition: 0.5s;
+
+                &:hover {
+                    background-color: #a00000;
+                    color: #fff;
+                }
+            }
+
+            .submit {
+                color: #fff;
+                background-color: #0c6c94dc;
+                transition: 0.5s;
+
+                &:hover {
+                    background-color: #0c6b94;
+                }
+            }
+        }
+    }
+
+    .close-btn {
+        color: #fff;
+        top: 18%;
+        right: 25%;
+        font-size: 2.5rem;
+        cursor: pointer;
+        position: absolute;
+    }
+
+    display: none;
+}
+
+.main-conteiner {
+    width: 90%;
+    margin: 2rem auto;
+    margin-top: 5rem;
+
+    .img-item {
+        width: 21.5rem;
+        border-radius: 1rem;
+        position: relative;
+
+        .img-class {
+            width: 100%;
+        }
+
+        .img-panel {
+            background-color: #0000009f;
+            border-radius: 1rem;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
+            opacity: 0;
+
+            .delete-btn {
+                top: 2%;
+                right: 2%;
+                padding: 1rem;
+                border-radius: 1.5rem;
+                font-family: Poppins, sans-serif;
+                font-size: 1.4rem;
+                border: 0.1rem solid #a00000;
+                color: #a00000;
+                transition: 0.5s;
+                background-color: transparent;
+
+                &:hover {
+                    color: #fff;
+                    background-color: #a00000;
+                }
+            }
+
+            .label-conteiner {
+                bottom: 1%;
+                width: 90%;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 4rem;
+                font-size: 1.2rem;
+                color: #fff;
+                overflow-y: auto;
+            }
+        }
+
+        &:hover .img-panel {
+            opacity: 1;
+        }
+    }
+}

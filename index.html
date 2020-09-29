@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My Unsplash it is a challenge Full-Stack done as a Challenge of devchallenges.io">
+    <script src="https://kit.fontawesome.com/5c7edfd842.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="CSS/universal.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <title>My unsplash</title>
+</head>
+<body>
+    <div class="filter">
+        <div class="upload-new-img-conteiner">
+            <h1 class="add-new-photo-title">Add a new photo</h1>
+            <form class="form-class" action="https://evening-fjord-55618.herokuapp.com/" method="post">
+                <label for="label" class="form-label">Label</label>
+                <input type="text" name="label" id="picture-label" class="form-input-field">
+
+                <label for="label" class="form-label">Img URL</label>
+                <input type="text" name="imgURL" id="picture-url" class="form-input-field">
+                
+                <div class="form-buttons-conteiner">
+                    <button type="button" class="cancel button">Cancel</button>
+                    <button type="submit" class="button submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <header class="unsplash-header">
+        <div class="left-side">
+            <img src="./IMG/unsplashLogo.jpg" alt="" class="my-unsplash-logo">
+            <div class="input-field-conteiner">
+                <i class="fas fa-search"></i>
+                <input type="text" class="input-field" placeholder="Search by label">
+            </div>
+        </div>
+        <button class="add-photo">Add a photo</button>
+    </header>
+    <main class="main-conteiner">
+        <div v-for="img in imgs" class="img-item">
+            <img src="img.imgURL" alt="" class="img-class">
+            <div class="img-panel">
+                <button class="delete-btn" v-on="deletePhoto(img._id)">Delete</button>
+                <p class="label-conteiner">
+                    {{ img.label }}
+                </p>
+            </div>
+        </div>
+    </main>
+    <script src="JS/index.js"></script>
+</body>
+</html>
