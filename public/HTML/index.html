@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My Unsplash it is a challenge Full-Stack done as a Challenge of devchallenges.io">
+    <script src="https://unpkg.com/colcade@0/colcade.js"></script>
+    <script src="https://kit.fontawesome.com/5c7edfd842.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="CSS/universal.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <title>My unsplash</title>
+</head>
+
+<body>
+    <div id="app">
+
+
+        <div class="filter">
+            <div class="upload-new-img-conteiner">
+                <h1 class="add-new-photo-title">Add a new photo</h1>
+                <form class="form-class" action="/photo" method="post">
+                    <label for="label" class="form-label">Label</label>
+                    <input type="text" name="label" id="picture-label" class="form-input-field" placeholder="Viva la vida <3">
+
+                    <label for="label" class="form-label">Img URL</label>
+                    <input type="text" name="imgURL" id="picture-url" class="form-input-field" placeholder="https://images.pexels.com/photos/5403482/pexels-photo-5403482.jpeg?cs=srgb&dl=pexels-allec-gomes-5403482.jpg&fm=jpg">
+
+                    <div class="form-buttons-conteiner">
+                        <button type="button" class="cancel button">Cancel</button>
+                        <button type="submit" class="button submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <header-component @search-by-label="searchByLabel"></header-component>
+
+        <div class="grid">
+            <div v-for="img in possibleImgs" class="grid-item">
+                <img :src="img.imgURL" alt="img.label" class="img-class">
+                <div class="img-panel">
+                    <button class="delete-btn" v-on:click="deletePhoto(img.id)">Delete</button>
+                    <p class="label-conteiner">
+                        {{ img.label }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="JS/index.js"></script>
+</body>
+
+</html>

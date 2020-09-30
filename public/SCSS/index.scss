@@ -1,3 +1,7 @@
+body {
+    min-height: 100vh;
+}
+
 .unsplash-header {
     width: 90%;
     margin: 2.5rem auto;
@@ -6,6 +10,7 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+    margin-bottom: 10rem;
 
     .left-side {
         width: 35%;
@@ -69,6 +74,8 @@
     position: fixed;
     top: 0;
     z-index: 2;
+    display: none;
+    transition: 0.5s;
 
     .upload-new-img-conteiner {
         //12.4.3.1
@@ -159,22 +166,24 @@
         cursor: pointer;
         position: absolute;
     }
-
-    display: none;
 }
 
-.main-conteiner {
-    width: 90%;
-    margin: 2rem auto;
-    margin-top: 5rem;
+.grid {
+    line-height: 40px;
+    column-count: 5;
+    padding: 1rem;
 
-    .img-item {
-        width: 21.5rem;
-        border-radius: 1rem;
+    .grid-item {
         position: relative;
+        width: 100%;
+        height: auto;
+        transition: 0.5s;
 
         .img-class {
             width: 100%;
+            border-radius: 1rem;
+            object-fit: cover;
+            height: auto;
         }
 
         .img-panel {
@@ -183,21 +192,25 @@
             position: absolute;
             top: 0;
             width: 100%;
-            height: 100%;
+            height: auto;
             transition: 0.5s;
             opacity: 0;
+            height: 97%;
+            overflow: hidden;
 
             .delete-btn {
-                top: 2%;
-                right: 2%;
+                top: -10%;
+                right: 5%;
                 padding: 1rem;
-                border-radius: 1.5rem;
+                border-radius: 2rem;
                 font-family: Poppins, sans-serif;
                 font-size: 1.4rem;
                 border: 0.1rem solid #a00000;
                 color: #a00000;
                 transition: 0.5s;
                 background-color: transparent;
+                position: absolute;
+                cursor: pointer;
 
                 &:hover {
                     color: #fff;
@@ -206,19 +219,52 @@
             }
 
             .label-conteiner {
-                bottom: 1%;
+                bottom: 5%;
                 width: 90%;
-                left: 50%;
-                transform: translateX(-50%);
+                left: -100%;
                 height: 4rem;
                 font-size: 1.2rem;
                 color: #fff;
                 overflow-y: auto;
+                position: absolute;
+                font-family: Poppins, sans-serif;
+                transition: 0.5s;
+
             }
         }
 
         &:hover .img-panel {
             opacity: 1;
         }
+        &:hover .delete-btn{
+            top: 4%;
+            transform: rotate(360deg);
+        }
+        &:hover .label-conteiner{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .grid {
+        line-height: 40px;
+        column-count: 4;
+    }
+}
+
+@media (min-width: 660px) {
+    .grid {
+        line-height: 40px;
+        column-count: 3;
+    }
+}
+
+
+@media (max-width: 486px) {
+    .grid {
+        line-height: 40px;
+        column-count: 2;
     }
 }
